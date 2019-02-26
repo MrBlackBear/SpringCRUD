@@ -8,7 +8,7 @@
     <title>UPDATE CRUD</title>
 </head>
 <body>
-<form:form action="/admin/update" modelAttribute="user" method="post" >
+<form:form action="/admin/update" modelAttribute="user" method="post">
     <div>Name: ${user.name}</div>
     <div>Login: ${user.login}</div>
     <div>Password: ${user.password}</div>

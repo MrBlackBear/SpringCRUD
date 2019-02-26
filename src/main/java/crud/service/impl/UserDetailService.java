@@ -11,8 +11,12 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service("userDetailService")
 public class UserDetailService implements UserDetailsService {
+    private final UserDao userDao;
+
     @Autowired
-    private UserDao userDao;
+    public UserDetailService(UserDao userDao) {
+        this.userDao = userDao;
+    }
 
     @Transactional(readOnly = true)
     @Override

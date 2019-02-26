@@ -24,9 +24,9 @@
             <td>${user.name}</td>
             <td>${user.login}</td>
             <td>${user.password}</td>
-            <td> <c:forEach var="role" items="${user.roles}">
+            <td><c:forEach var="role" items="${user.roles}">
                 ${role.role}
-                </c:forEach>
+            </c:forEach>
             </td>
             <td>
                 <form:form method="POST" action="/admin/delete">
@@ -44,18 +44,18 @@
         <tr>
             <td>Create new user</td>
             <td>
-                Name <form:input path = "name"></form:input>
+                Name <form:input path="name"></form:input>
             </td>
             <td>
-                Login <form:input path = "login"></form:input>
+                Login <form:input path="login"></form:input>
             </td>
             <td>
-                Password <form:input path = "password"></form:input>
+                Password <form:input path="password"></form:input>
             </td>
             <td>Role <select name="role">
-                    <option value="1">ROLE_ADMIN</option>
-                    <option value="2">ROLE_USER</option>
-                </select>
+                <option value="1">ROLE_ADMIN</option>
+                <option value="2">ROLE_USER</option>
+            </select>
             </td>
             <td>
                 <button type="submit">Submit</button>

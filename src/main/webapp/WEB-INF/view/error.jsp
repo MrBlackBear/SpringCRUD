@@ -8,8 +8,8 @@
     <title>ERROR</title>
 </head>
 <body>
-<H1>ERROR HAS NO AYTHORITY TO ENTER</H1>
-<form:form method="GET" action="/user">
+<H1>ERROR HAS NO AUTHORITY TO ENTER</H1>
+<form:form action="/user" method="GET">
     <input type="submit" value="GO TO USER PAGE"/>
 </form:form>
 </body>

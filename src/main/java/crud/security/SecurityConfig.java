@@ -14,12 +14,15 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-    @Autowired
-    private MySuccesHandler mySuccesHandler;
+    private final MySuccessHandler mySuccessHandler;
+
+    private final UserDetailsService userDetailsService;
 
     @Autowired
-    @Qualifier("userDetailService")
-    private UserDetailsService userDetailsService;
+    public SecurityConfig(MySuccessHandler mySuccessHandler, @Qualifier("userDetailService") UserDetailsService userDetailsService) {
+        this.mySuccessHandler = mySuccessHandler;
+        this.userDetailsService = userDetailsService;
+    }
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
@@ -37,7 +40,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .failureUrl("/login?error")
                 .usernameParameter("name")
                 .passwordParameter("password")
-                .successHandler(mySuccesHandler)
+                .successHandler(mySuccessHandler)
                 .and()
                 .logout()
                 .and().csrf().disable()

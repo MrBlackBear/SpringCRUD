@@ -1,6 +1,5 @@
 package crud.config;
 
-
 import crud.security.SecurityConfig;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 

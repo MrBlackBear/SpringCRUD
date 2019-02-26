@@ -9,8 +9,12 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 @Service("roleServiceImpl")
 public class RoleServiceImpl implements RoleService {
+    private final RoleDao roleDao;
+
     @Autowired
-    RoleDao roleDao;
+    public RoleServiceImpl(RoleDao roleDao) {
+        this.roleDao = roleDao;
+    }
 
     @Override
     public Role getRoleById(long id) {

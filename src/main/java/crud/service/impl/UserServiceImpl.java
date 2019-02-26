@@ -11,8 +11,12 @@ import java.util.List;
 
 @Service("userServiceImpl")
 public class UserServiceImpl implements UserService {
+    private final UserDao usersDAO;
+
     @Autowired
-    private UserDao usersDAO;
+    public UserServiceImpl(UserDao usersDAO) {
+        this.usersDAO = usersDAO;
+    }
 
     @Override
     @Transactional
@@ -41,8 +45,7 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public List<User> listUsers() {
-        List<User> list = this.usersDAO.listUsers();
-        return list;
+        return this.usersDAO.listUsers();
     }
 
     @Override

@@ -18,11 +18,15 @@ import java.util.Set;
 
 @Controller
 public class AppController {
-    @Autowired
-    private UserService userService;
+    private final UserService userService;
+
+    private final RoleService roleService;
 
     @Autowired
-    private RoleService roleService;
+    public AppController(UserService userService, RoleService roleService) {
+        this.userService = userService;
+        this.roleService = roleService;
+    }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public ModelAndView login(String error, String logout, ModelAndView modelAndView) {
